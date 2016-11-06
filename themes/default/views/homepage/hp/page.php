@@ -15,7 +15,8 @@ $this->keywords = !empty($page->keywords) ? $page->keywords : Yii::app()->getMod
 <div class="wrapper">
     <div class="js-header-menu">
         <ul class="list-slider-menu">
-            <li class="list-slider-menu__item"><a target="_blank" class="list-slider-menu__link" href="https://vk.com/club115032460">Вконтакте |</a></li>
+            <li class="list-slider-menu__item"><a target="_blank" class="list-slider-menu__link"
+                                                  href="https://vk.com/club115032460">Вконтакте |</a></li>
             <li class="list-slider-menu__item"><a class="list-slider-menu__link" href="#">+ 7 (962) 520 45 20 |</a></li>
             <li class="list-slider-menu__item"><a onclick="$('#myModalBox').modal('show');return false;"
                                                   class="list-slider-menu__link list-slider-menu__btn"
@@ -475,14 +476,44 @@ $this->keywords = !empty($page->keywords) ? $page->keywords : Yii::app()->getMod
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Заявка</h4>
                 </div>
-                <form id="formOrder" enctype="multipart/form-data" method="POST">
+                <form id="formOrder">
                     <!-- Основное содержимое модального окна -->
                     <div class="modal-body">
-                        <label for="UserPhone">Ваш номер телефона ?</label>
-                        <input id="UserPhone" name="phone" type="text" class="form-control" required>
-                        <label for="file" class="control-label">Ваше Изображние</label>
-                        <input id="file" name="Userfile" type="file" class="form-control"
-                               accept="image/jpeg,image/png,image/gif">
+                        <label for="UserPhone">Ваш номер телефона или E-mail ?</label>
+                        <input id="UserPhone" name="phone" type="text" class="form-control phone-control" required>
+                        <div class="dimensions-title">
+                            Размеры
+                            <div class="dimensions-title-alert">
+                                Минимум 500х500 мм
+                                <br>
+                                Максимум 2000х3000 мм
+                            </div>
+                        </div>
+                        <hr>
+                        <label for="HeightProduct">Высота</label>
+                        <input type="text" id="HeightProduct" name="HeightProduct"
+                               class="form-control control-dimensions">
+                        <label for="WidthProduct">Ширина</label>
+                        <input type="text" id="WidthProduct" name="WidthProduct"
+                               class="form-control control-dimensions">
+                        <hr>
+                        <br>
+                        <span class="btn btn-primary fileinput-button">
+                            <i class="glyphicon glyphicon-plus"></i>
+        <span>Добавить изображение</span>
+                            <!-- The file input field used as target for the file upload widget -->
+        <input id="fileupload" type="file" name="files[]" multiple>
+    </span>
+                        <br>
+                        <br>
+                        <!-- The global progress bar -->
+                        <div id="progress" class="progress">
+                            <div class="progress-bar progress-bar-success"></div>
+                        </div>
+                        <!-- The container for the uploaded files -->
+                        <div id="files" class="files"></div>
+
+
                     </div>
                     <!-- Футер модального окна -->
                     <div class="modal-footer">
@@ -511,93 +542,3 @@ $this->keywords = !empty($page->keywords) ? $page->keywords : Yii::app()->getMod
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function () {
-            var files;
-            $('input[type=file]').on('change', prepareUpload);
-            function prepareUpload(event) {
-                files = event.target.files;
-            }
-
-            $('form').on('submit', uploadFiles);
-
-// Catch the form submit and upload the files
-            function uploadFiles(event) {
-                event.stopPropagation(); // Stop stuff happening
-                event.preventDefault(); // Totally stop stuff happening
-
-                // START A LOADING SPINNER HERE
-
-                // Create a formdata object and add the files
-                var data = new FormData();
-                $.each(files, function (key, value) {
-                    data.append(key, value);
-                });
-
-                $.ajax({
-                    url: '/submit.php?files',
-                    type: 'POST',
-                    data: data,
-                    cache: false,
-                    dataType: 'json',
-                    processData: false, // Don't process the files
-                    contentType: false, // Set content type to false as jQuery will tell the server its a query string request
-                    success: function (data, textStatus, jqXHR) {
-                        if (typeof data.error === 'undefined') {
-                            // Success so call function to process the form
-                            submitForm(event, data);
-                        }
-                        else {
-                            // Handle errors here
-                            console.log('ERRORS: ' + data.error);
-                        }
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        // Handle errors here
-                        console.log('ERRORS: ' + textStatus);
-                        // STOP LOADING SPINNER
-                    }
-                });
-
-            };
-            function submitForm(event, data) {
-                // Create a jQuery object from the form
-                $form = $(event.target);
-
-                // Serialize the form data
-                var formData = $form.serialize();
-
-                // You should sterilise the file names
-                $.each(data.files, function (key, value) {
-                    formData = formData + '&filenames[]=' + value;
-                });
-                $.ajax({
-                    url: 'submit.php',
-                    type: 'POST',
-                    data: formData,
-                    success: function (data, textStatus, jqXHR) {
-                        if (typeof data.error === 'undefined') {
-                            // Success so call function to process the form
-                            $('#myModalBox').modal('hide');
-                            $('#SuccessModalBox').modal('show');
-                            setTimeout(function () {
-                                $('#SuccessModalBox').modal('hide');
-                            }, 3000)
-                        }
-                        else {
-                            // Handle errors here
-                            console.log('ERRORS: ' + data.error);
-                        }
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        // Handle errors here
-                        console.log('ERRORS: ' + textStatus);
-                    },
-                    complete: function () {
-                        // STOP LOADING SPINNER
-                    }
-                });
-
-            }
-        })
-    </script>
