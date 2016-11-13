@@ -275,6 +275,7 @@ body {
     font-size: 74px;
     font-weight: bold;
     color: white;
+    word-wrap: break-word;
 }
 
 .b-description__text {
