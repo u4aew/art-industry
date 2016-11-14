@@ -498,13 +498,13 @@ $this->keywords = !empty($page->keywords) ? $page->keywords : Yii::app()->getMod
                                 <div>
                                     <label for="HeightProduct">Высота, мм</label>
                                     <input type="text" id="HeightProduct" pattern="^[ 0-9]+$" name="HeightProduct"
-                                           class="form-control control-dimensions">
+                                           value="0" class="form-control control-dimensions">
                                 </div>
 
                                 <div>
                                     <label for="WidthProduct">Ширина, мм</label>
                                     <input type="text" id="WidthProduct" name="WidthProduct"
-                                           pattern="^[ 0-9]+$" class="form-control control-dimensions">
+                                           pattern="^[ 0-9]+$" value="0" class="form-control control-dimensions">
 
                                 </div>
                             </div>

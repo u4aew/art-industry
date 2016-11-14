@@ -580,7 +580,9 @@ label {
 input {
     display: block;
 }
-
+.alert-dimensions-title {
+    color: red;
+}
 
 @media screen and(max-width: 768px)  {
     .header-logo {
@@ -594,7 +596,7 @@ input {
         padding-top: 30px;
     }
     .video-play {
-    margin: 20px auto;
+        margin: 20px auto;
     }
     .b-order__btn {
         width: 100%;

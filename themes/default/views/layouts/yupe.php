@@ -38,10 +38,6 @@
 <script>
     $(document).ready(function () {
         $("#formOrder").submit(function() {
-            SendOrder();
-            return false;
-        });
-        function SendOrder() {
             var FileName = $("#files").text();
             var FileHost = window.location + '/server/php/files/' + FileName
             $.ajax({
@@ -55,7 +51,8 @@
                     $('#SuccessModalBox').modal('hide');
                 }, 3000);
             });
-        }
+            return false;
+        });
     })
 </script>
 
@@ -86,6 +83,22 @@
         }).prop('disabled', !$.support.fileInput)
             .parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
+</script>
+<script>
+    $(document).ready(function () {
+        function AlertMod() {
+            if ($("#HeightProduct").val() >= 500 && $("#HeightProduct").val() <= 2000 && $("#WidthProduct").val() >= 500 && $("#WidthProduct").val() <= 3000) {
+                $(".dimensions-title").removeClass('alert-dimensions-title');
+            }
+            else {
+                $('.control-dimensions').val(500);
+                $(".dimensions-title").addClass('alert-dimensions-title');
+            }
+        }
+        $(".control-dimensions").focusout(function () {
+            AlertMod()
+        })
+    })
 </script>
 </body>
 </html>
