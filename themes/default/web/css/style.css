@@ -407,6 +407,8 @@ body {
 
 .b-modal {
     border-radius: 0px !important;
+    width: 500px;
+    margin: 0 auto;
 }
 
 .footer {
@@ -439,6 +441,7 @@ body {
     font-size: 20px;
     margin: 10px auto;
     width: 90%;
+    border: 2px solid white;
 }
 .header__button {
     text-align: center;
@@ -495,6 +498,7 @@ body {
 .list-slider-menu__btn {
     padding: 4px;
     background-color: rgba(78, 47, 69, 0.82);
+    border: 2px solid white;
 }
 .b-product-bottom__title {
     font-family: OpenSansRegular;
@@ -548,6 +552,27 @@ body {
 
 hr {
     margin: 3px 0 !important;
+}
+.b-dimensions {
+    display: flex;
+}
+.b-dimensions div {
+    margin: 15px;
+}
+.b-dimensions-more {
+    margin-top: 15px;
+    padding: 15px;
+    border: 1px solid lightgrey;
+    transition: .3s;
+    opacity: 0.6;
+}
+.b-dimensions-more:hover {
+    opacity: 1;
+}
+.modal-body__close {
+    text-align: center;
+    font-size: 21px;
+    padding: 10px;
 }
 label {
     display: block;

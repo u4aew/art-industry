@@ -38,6 +38,10 @@
 <script>
     $(document).ready(function () {
         $("#formOrder").submit(function() {
+            SendOrder();
+            return false;
+        });
+        function SendOrder() {
             var FileName = $("#files").text();
             var FileHost = window.location + '/server/php/files/' + FileName
             $.ajax({
@@ -51,8 +55,7 @@
                     $('#SuccessModalBox').modal('hide');
                 }, 3000);
             });
-            return false;
-        });
+        }
     })
 </script>
 

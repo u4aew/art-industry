@@ -474,46 +474,60 @@ $this->keywords = !empty($page->keywords) ? $page->keywords : Yii::app()->getMod
                 <!-- Заголовок модального окна -->
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Заявка</h4>
                 </div>
                 <form id="formOrder">
                     <!-- Основное содержимое модального окна -->
                     <div class="modal-body">
                         <label for="UserPhone">Ваш номер телефона или E-mail ?</label>
                         <input id="UserPhone" name="phone" type="text" class="form-control phone-control" required>
-                        <div class="dimensions-title">
-                            Размеры
-                            <div class="dimensions-title-alert">
-                                Минимум 500х500 мм
-                                <br>
-                                Максимум 2000х3000 мм
+                        <div class="b-dimensions-more">
+                            <div class="dimensions-alert">
+                                Прикрепить изображение (необязательно)
                             </div>
-                        </div>
-                        <hr>
-                        <label for="HeightProduct">Высота</label>
-                        <input type="text" id="HeightProduct" name="HeightProduct"
-                               class="form-control control-dimensions">
-                        <label for="WidthProduct">Ширина</label>
-                        <input type="text" id="WidthProduct" name="WidthProduct"
-                               class="form-control control-dimensions">
-                        <hr>
-                        <br>
+                            <hr>
+                            <div class="dimensions-title">
+                                Размеры
+                                <div class="dimensions-title-alert">
+                                    Минимум 500х500 мм
+                                    <br>
+                                    Максимум 2000х3000 мм
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="b-dimensions">
+                                <div>
+                                    <label for="HeightProduct">Высота, мм</label>
+                                    <input type="text" id="HeightProduct" pattern="^[ 0-9]+$" name="HeightProduct"
+                                           class="form-control control-dimensions">
+                                </div>
+
+                                <div>
+                                    <label for="WidthProduct">Ширина, мм</label>
+                                    <input type="text" id="WidthProduct" name="WidthProduct"
+                                           pattern="^[ 0-9]+$" class="form-control control-dimensions">
+
+                                </div>
+                            </div>
+
+
+                            <hr>
+                            <br>
                         <span class="btn btn-primary fileinput-button">
                             <i class="glyphicon glyphicon-plus"></i>
-        <span>Добавить изображение</span>
+        <span>Добавить...</span>
                             <!-- The file input field used as target for the file upload widget -->
         <input id="fileupload" type="file" name="files[]" multiple>
     </span>
-                        <br>
-                        <br>
-                        <!-- The global progress bar -->
-                        <div id="progress" class="progress">
-                            <div class="progress-bar progress-bar-success"></div>
+                            <br>
+                            <br>
+                            <!-- The global progress bar -->
+                            <div id="progress" class="progress">
+                                <div class="progress-bar progress-bar-success"></div>
+                            </div>
+                            <!-- The container for the uploaded files -->
+                            <div id="files" class="files"></div>
+
                         </div>
-                        <!-- The container for the uploaded files -->
-                        <div id="files" class="files"></div>
-
-
                     </div>
                     <!-- Футер модального окна -->
                     <div class="modal-footer">
@@ -530,11 +544,10 @@ $this->keywords = !empty($page->keywords) ? $page->keywords : Yii::app()->getMod
                 <!-- Заголовок модального окна -->
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Заявка</h4>
                 </div>
                 <!-- Основное содержимое модального окна -->
-                <div class="modal-body">
-                    Спасибо
+                <div class="modal-body__close">
+                    Спасибо, наши менеджеры свяжутся с вами в ближайщее время
                 </div>
                 <!-- Футер модального окна -->
                 <div class="modal-footer">
