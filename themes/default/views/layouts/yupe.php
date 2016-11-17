@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Language" content="ru-RU"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title><?= $this->title; ?></title>
+    <meta name="yandex-verification" content="9e73d1b2ca2622d5" />
+    <meta name="google-site-verification" content="n1rhMEQSsyPF_TmujeRu40cd1YGGJokcp-wXtuVg19g" />
     <meta name="description" content="<?= $this->description; ?>"/>
     <meta name="keywords" content="<?= $this->keywords; ?>"/>
     <?php if ($this->canonical): ?>
@@ -100,5 +102,39 @@
         })
     })
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter40921504 = new Ya.Metrika({
+                    id:40921504,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/40921504" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- BEGIN JIVOSITE CODE {literal} -->
+<script type='text/javascript'>
+    (function(){ var widget_id = 'jz1aOqPK7S';var d=document;var w=window;function l(){
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})();</script>
+<!-- {/literal} END JIVOSITE CODE -->
 </body>
 </html>

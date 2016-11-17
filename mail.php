@@ -1,6 +1,6 @@
 <?php
-$recepient = "dialoggg1994@gmail.com";
-$sitename = "Название сайта";
+$recepient = "AvalmanBarnaul@yandex.ru";
+$sitename = "art-novation.ru";
 
 $phone = trim($_POST["phone"]);
 $height = trim($_POST["HeightProduct"]);
