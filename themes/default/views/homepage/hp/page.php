@@ -147,9 +147,9 @@ $this->keywords = !empty($page->keywords) ? $page->keywords : Yii::app()->getMod
                             <div class="b-video-youtube"
                                  style="background-image: url('<?= $this->mainAssets ?>/images/background-video.jpg')">
                                 <div class="b-video-youtube-wrap">
-                                    <a href="https://www.youtube.com/watch?v=A1Qb4zfurA8?autoplay=1"
+                                    <a href="/video.mp4"
                                        style="background-image: url('<?= $this->mainAssets ?>/images/play.png')"
-                                       class="video-play video-youtube">
+                                       class="video-play local-video">
 
                                     </a>
                                 </div>

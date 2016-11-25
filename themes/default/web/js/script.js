@@ -48,4 +48,13 @@ $(document).ready(function () {
         });
         return false;
     });
+    $(function () {
+        $(".local-video").fancybox({
+            width: 840,
+            height: 400,
+            type: 'iframe'
+        });
+    });
+    
+    
 })
